@@ -1,26 +1,18 @@
 ﻿# Contributing
 
-Thanks for contributing to **Aura Glow**.
+Thanks for your interest in contributing.
 
-## License & Attribution (Non-Negotiable)
-By contributing, you agree that your contributions are licensed under **AGPL-3.0-or-later** and that:
-- Existing copyright headers must remain intact.
-- NOTICE must be preserved.
-- CITATION.cff must remain valid.
-See docs/LEGAL.md.
+## Ground rules
+- Keep changes minimal and well-scoped.
+- Prefer deterministic, reproducible behavior.
+- All scripts must be PowerShell compatible on Windows.
+- All builds must be CI-friendly.
 
-## Standards
-- Keep changes minimal, auditable, and well-scoped.
-- Prefer deterministic behavior; avoid hidden network calls by default.
-- Do not add telemetry that collects biometric payloads (frames/embeddings/masks).
-- Do not commit secrets. CI includes a basic secret-scan.
+## Required checks
+Before opening a PR, run:
+- pwsh -NoProfile -ExecutionPolicy Bypass -File scripts\verify.ps1 -Strict
+- (optional) scripts\doctor.ps1
+- scripts\demo.ps1 (with MSVC environment)
 
-## Pull Request Checklist
-- [ ] pwsh ./scripts/verify.ps1 -Strict passes locally
-- [ ] Docs updated when behavior changes
-- [ ] No secrets, tokens, or private keys in commits
-- [ ] Licensing is compatible with AGPL
-
-## Style
-- Use clear naming and keep modules cohesive.
-- Add comments only where they prevent future mistakes.
+## Attribution
+By contributing, you agree your contribution is licensed under AGPL-3.0-or-later and you preserve NOTICE + CITATION requirements.
