@@ -67,5 +67,14 @@ int main() {
 
   WritePPM("out_before.ppm", std::vector<uint8_t>(rgba.begin(), rgba.end()), w, h); // after dye (kept for simplicity)
   std::cout << "OK: wrote out_before.ppm (PPM)\n";
+
+  // Write "after" (post-effect) frame for visual diff
+  if(!WritePpm("out_after.ppm", frame, W, H)){
+    std::cerr << "WARN: could not write out_after.ppm\n";
+  } else {
+    std::cout << "OK: wrote out_after.ppm (PPM)\n";
+  }
+
   return 0;
 }
+
